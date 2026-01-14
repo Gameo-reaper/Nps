@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="box">
+  <h2>Login</h2>
+
+  <input type="number" id="roll" placeholder="Roll No">
+  <input type="password" id="pass" placeholder="Password">
+
+  <button onclick="login()">Login</button>
+
+  <p id="msg"></p>
+</div>
+<center><strong><p> after clicking on the login button you will agree to our terms and policy. </center></p></strong>
+
+<script>
+function login() {
+  let roll = document.getElementById("roll").value;
+  let pass = document.getElementById("pass").value;
+
+  let correctPass = "class" + roll.toString().padStart(2, "0") + "@2026";
+
+  if (roll >= 1 && roll <= 40 && pass === correctPass) {
+    window.location.href = "third.html";
+  } else {
+    document.getElementById("msg").innerText = "Wrong Roll or Password";
+  }
+}
+</script>
+
+</body>
+</html>

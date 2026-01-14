@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Signup</title>
+  <link rel="stylesheet" href="style.css">
+<style>
+body{
+background-image: url("paper.gifs");
+}
+</style
+</head>
+<body>
+
+<div class="box">
+  <h2>Signup</h2>
+
+  <input type="number" id="roll" placeholder="Roll No (1–40)">
+  <button onclick="signup()">Generate Password</button>
+
+  <p id="result"></p>
+
+  <!-- Hidden signup button -->
+  <button id="signupBtn" style="display:none;" onclick="goNext()">
+    Sign Up
+  </button>
+</div>
+<strong><center><p> after clicking on sign up you agree to our terms and policy </p></center></strong>
+
+<script>
+function signup() {
+  let roll = document.getElementById("roll").value;
+
+  if (roll >= 1 && roll <= 40) {
+    let password = "class" + roll.toString().padStart(2, "0") + "@2026";
+    document.getElementById("result").innerHTML =
+      "Your Password:<br><b>" + password + "</b>";
+
+    // show signup button
+    document.getElementById("signupBtn").style.display = "block";
+  } else {
+    document.getElementById("result").innerText = "Invalid Roll Number ❌";
+    document.getElementById("signupBtn").style.display = "none";
+  }
+}
+
+function goNext() {
+  window.location.href = "second.html";
+}
+</script>
+
+</body>
+</html>

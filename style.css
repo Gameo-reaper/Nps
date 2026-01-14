@@ -1,0 +1,43 @@
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("paper.gif");
+}
+
+.box {
+  width: 300px;
+  background: white;
+  padding: 20px;
+  margin: 100px auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+input {
+  width: 90%;
+  padding: 8px;
+  margin: 8px 0;
+}
+
+button {
+  width: 95%;
+  padding: 10px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #43a047;
+}
+
+p {
+  margin-top: 10px;
+  font-size: 14px;
+}

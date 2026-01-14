@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nepal Police School - Sanga Kavre</title>
+<style>
+/* ---------- General ---------- */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  line-height: 1.6;
+  color: #333;
+}
+a { text-decoration: none; }
+
+/* ---------- Header ---------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: linear-gradient(90deg, #001f4d, #4B0082);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+header img { width: 120px; border-radius: 10px; }
+header h1 { margin-left: 20px; font-size: 24px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
+nav a {
+  margin: 0 12px;
+  padding: 8px 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+nav a:hover {
+  background: linear-gradient(45deg, #ff66cc, #9900cc);
+  box-shadow: 0 0 12px rgba(255,102,204,0.6);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  background: url('https://i.ibb.co/Rkq0XsZS/nps-homepage-main-image.png') center/cover no-repeat;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+.hero h2 {
+  position: relative;
+  font-size: 40px;
+  padding: 20px 30px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.1);
+  animation: floatText 4s ease-in-out infinite;
+}
+@keyframes floatText {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ---------- Sections ---------- */
+section {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+section h2 {
+  text-align: center;
+  color: #4B0082;
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+section p {
+  text-align: center;
+  font-size: 18px;
+  max-width: 850px;
+  margin: 15px auto;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  background: linear-gradient(45deg, #800080, #ff66cc);
+  color: white;
+  padding: 12px 25px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: linear-gradient(45deg, #ff66cc, #800080);
+  box-shadow: 0 0 15px rgba(255,102,204,0.6);
+}
+
+/* ---------- Floating Box ---------- */
+.floating-paragraph {
+  width: 80%;
+  margin: 50px auto;
+  text-align: center;
+  padding: 25px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  animation: floatBox 5s ease-in-out infinite;
+}
+@keyframes floatBox {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* ---------- Gallery ---------- */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+.gallery img {
+  border-radius: 12px;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+.center-link{
+  display: block;        /* makes link act like a box */
+  text-align: center;    /* centers text */
+  margin: 20px auto;
+  font-size: 18px;
+  display: inline-block;
+  padding: 10px 20px;
+  background: purple;
+  color: white;
+  border-radius: 8px;
+}
+
+
+/* ---------- Video ---------- */
+.video-container {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+.video-container video {
+  height: 500px;
+  border-radius: 120px;
+  max-width: 100%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* ---------- Notice Box ---------- */
+.notice-box {
+  width: 90%;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 15px 20px;
+  border-radius: 12px;
+  background: #800080;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  overflow: hidden;
+  position: relative;
+}
+.notice-box h3 { margin-bottom: 10px; color: #ffcc00; text-align: center; }
+.notice-box ul {
+  list-style: none;
+  animation: scrollNotices 12s linear infinite;
+  margin: 0;
+  padding: 0;
+}
+.notice-box ul li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+@keyframes scrollNotices {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+/* ---------- Login Panel ---------- */
+.login-panel {
+  width: 320px;
+  max-width: 90%;
+  margin: 50px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.login-panel h3 { text-align: center; color: #4B0082; margin-bottom: 20px; }
+.login-panel input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+.login-panel button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(45deg, #800080, #ff66cc);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.login-panel button:hover {
+  background: linear-gradient(45deg, #ff66cc, #800080);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background: linear-gradient(90deg, #001f4d, #4B0082);
+  color: white;
+  text-align: left;
+  padding: 35px 40px;
+}
+footer h3 { margin-bottom: 15px; color: #ffcc00; }
+footer p { margin: 5px 0; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px){
+  header { flex-direction: column; text-align: center; }
+  nav a { display: block; margin: 8px 0; }
+  .gallery img { width: 90%; height: auto; }
+  .notice-box ul { animation-duration: 20s; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div style="display:flex; align-items:center;">
+    <img src="https://i.ibb.co/n864tc23/nps.webp" alt="NPS Logo">
+    <h1>Nepal Police School, Sanga Kavre</h1>
+  </div>
+  <nav>
+    <a href="third.html">Home</a>
+    <a href="fourth.html">Students</a>
+    <a href="developer.html">Developer</a>
+    <a href="https://www.nps.edu.np" target="_blank">Official Site</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <h2>Discpline Decorum and Deginity</h2>
+</div>
+
+<!-- Welcome -->
+<section>
+  <h2>Welcome to Nepal Police School</h2>
+  <p>
+    Nepal Police School, Sanga Kavre provides top-quality education and holistic development. We focus on discipline, knowledge, and skills for students to excel in academics and life.
+  </p>
+  <p>
+    This portal allows students to securely access academic records, notices, and learning resources using their roll number and password.
+  </p>
+  <a href="https://www.nps.edu.np" target="_blank" class="center-link">Visit Official Website</a>
+</section>
+
+<!-- Notice Box -->
+<div class="notice-box">
+  <h3>Latest Notices</h3>
+  <ul>
+    <li>Exam Schedule for Class 10 released.</li>
+    <li>Admission for new session 2026 will start.</li>
+    <li>Library will remain open till 3 PM on school day.</li>
+    <li>Sports week scheduled on falgun.</li>
+    <li>Covid safety guidelines updated.</li>
+  </ul>
+</div>
+
+<!-- Floating Highlight -->
+<p class="floating-paragraph">
+  Explore our modern library, labs, and sports facilities designed to nurture creativity, learning, and excellence.
+</p>
+
+<!-- Gallery -->
+<section>
+  <h2>Our Campus & Students</h2>
+  <div class="gallery">
+    <img src="https://i.ibb.co/Rkq0XsZS/nps-homepage-main-image.png">
+    <img src="https://i.ibb.co/Xf1XXTx4/95f8d1bd-fea8-45af-baf5-4d4f3b5574b5.png">
+    <img src="https://i.ibb.co/4gwh1WK0/3.png">
+    <img src="https://i.ibb.co/67Sp18r9/file-000000008b807206b28f391662e2cb1c.png">
+  </div>
+</section>
+
+<!-- Video -->
+<section>
+  <h2>Video Overview</h2>
+  <div class="video-container">
+<video id="autoVideo" muted playsinline>
+        <source src="NPS,_SANGA_THROUGH_LENS❤️💕(360p).mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <p>Sanga, Kavre, Nepal</p>
+      <p>011-661301 , +977 9851286005</p>
+      <p>011-664670 , 011-663495</p>
+      <p>Email: info@nps.edu.np</p>
+    </div>
+    <div class="footer-section">
+      <h3>Navigate</h3>
+      <p>About Us</p>
+      <p>Academics</p>
+      <p>Admissions</p>
+      <p>Notice Board</p>
+      <p>Gallery</p>
+      <p>Contact Us</p>
+    </div>
+  </div>
+  <p class="footer-bottom">
+    &copy; 2026 Nepal Police School, Sanga Kavre. All rights reserved.
+  </p>
+</footer>
+
+<!-- ✅ ONLY ADDITION -->
+<script>
+const video = document.getElementById("autoVideo");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+  },
+  { threshold: 0.6 }
+);
+
+observer.observe(video);
+</script>
+
+</body>
+</html>
