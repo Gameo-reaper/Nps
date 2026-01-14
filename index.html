@@ -1,52 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Signup</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup - NPS</title>
+  
+  <!-- External CSS (if any) -->
   <link rel="stylesheet" href="style.css">
-<style>
-body{
-background-image: url("paper.gifs");
-}
-</style
+  
+  <style>
+    /* ---------- Background ---------- */
+    body {
+      background-image: url("https://i.ibb.co/9fWTqp3/paper-gf.jpg" alt="paper-gf" border="0")      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ---------- Center Box ---------- */
+    .box {
+      width: 350px;
+      margin: 100px auto;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.85);
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00000050;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #result {
+      margin-top: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .terms {
+      font-size: 12px;
+      color: #555;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
 
-<div class="box">
-  <h2>Signup</h2>
+  <div class="box">
+    <h2>Signup</h2>
 
-  <input type="number" id="roll" placeholder="Roll No (1–40)">
-  <button onclick="signup()">Generate Password</button>
+    <input type="number" id="roll" placeholder="Roll No (1–40)">
+    <button onclick="signup()">Generate Password</button>
 
-  <p id="result"></p>
+    <p id="result"></p>
 
-  <!-- Hidden signup button -->
-  <button id="signupBtn" style="display:none;" onclick="goNext()">
-    Sign Up
-  </button>
-</div>
-<strong><center><p> after clicking on sign up you agree to our terms and policy </p></center></strong>
+    <!-- Hidden signup button -->
+    <button id="signupBtn" style="display:none;" onclick="goNext()">
+      Sign Up
+    </button>
+  </div>
 
-<script>
-function signup() {
-  let roll = document.getElementById("roll").value;
+  <div class="terms">
+    <center>After clicking on Sign Up you agree to our Terms and Policy</center>
+  </div>
 
-  if (roll >= 1 && roll <= 40) {
-    let password = "class" + roll.toString().padStart(2, "0") + "@2026";
-    document.getElementById("result").innerHTML =
-      "Your Password:<br><b>" + password + "</b>";
+  <script>
+    function signup() {
+      let roll = document.getElementById("roll").value;
 
-    // show signup button
-    document.getElementById("signupBtn").style.display = "block";
-  } else {
-    document.getElementById("result").innerText = "Invalid Roll Number ❌";
-    document.getElementById("signupBtn").style.display = "none";
-  }
-}
+      if (roll >= 1 && roll <= 40) {
+        let password = "class" + roll.toString().padStart(2, "0") + "@2026";
+        document.getElementById("result").innerHTML =
+          "Your Password:<br><b>" + password + "</b>";
 
-function goNext() {
-  window.location.href = "second.html";
-}
-</script>
+        // Show signup button
+        document.getElementById("signupBtn").style.display = "block";
+      } else {
+        document.getElementById("result").innerText = "Invalid Roll Number ❌";
+        document.getElementById("signupBtn").style.display = "none";
+      }
+    }
+
+    function goNext() {
+      window.location.href = "second.html"; // make sure this page exists
+    }
+  </script>
 
 </body>
 </html>
