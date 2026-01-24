@@ -1,31 +1,54 @@
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nepal Police School | Landing</title>
 <style>
-body{
+/* ---------- General ---------- */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f3f4f6;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ---------- Header ---------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: linear-gradient(90deg,#001f4d,#4B0082);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+header img { width: 120px; border-radius: 10px; }
+header h1 { margin-left: 20px; font-size: 24px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
+header h2 {
   margin:0;
-  font-family:'Segoe UI',sans-serif;
-  background:#f3f4f6;
-  color:#333;
+  font-size:22px;
 }
-/* HEADER */
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 50px;
-  background:linear-gradient(90deg,#001f4d,#4B0082);
+nav a {
   color:white;
-  box-shadow:0 6px 18px rgba(0,0,0,0.3);
+  margin:0 15px;
+  font-weight:500;
+  text-decoration:none;
+  cursor:pointer;
 }
-header h2{margin:0;font-size:22px;}
-nav a{
-  color:white; margin:0 15px; font-weight:500; text-decoration:none; cursor:pointer;
+nav a:hover {
+  background: linear-gradient(45deg, #ff66cc, #9900cc);
+  box-shadow: 0 0 12px rgba(255,102,204,0.6);
+  border-radius: 8px;
+  padding:6px 12px;
+  transition:0.3s;
+  
 }
-nav a:hover{text-decoration:underline;}
+
 .signup-btn{
   padding:8px 18px;
   border-radius:20px;
@@ -39,73 +62,172 @@ nav a:hover{text-decoration:underline;}
 }
 .signup-btn:hover{background:#ffccff;}
 
-/* HERO */
+/* ---------- Hero Section ---------- */
 .hero{
-  text-align:center; padding:70px 20px; background:linear-gradient(135deg,#e9e6ff,#f5f3ff);
+  text-align:center;
+  padding:70px 20px;
+  background: linear-gradient(135deg,#e9e6ff,#f5f3ff);
 }
 .hero h1{font-size:36px;margin-bottom:10px;}
 .hero p{font-size:18px;color:#555;}
 
-/* INFO CARDS */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px; padding:60px;
+/* ---------- Boxes / Cards ---------- */
+.section-box {
+  max-width: 900px;
+  margin: 50px auto;
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
 }
-.card{
-  background:white; padding:30px; border-radius:20px; box-shadow:0 12px 30px rgba(0,0,0,0.15); transition:0.3s;
+.section-box.show {
+  opacity: 1;
+  transform: translateY(0);
 }
-.card:hover{transform:translateY(-10px); box-shadow:0 20px 40px rgba(0,0,0,0.25);}
-.card h3{margin-top:0;color:#4B0082;}
-footer{text-align:center;padding:20px;background:#1a1a2e;color:#ccc;font-size:14px;}
+
+/* ---------- Titles ---------- */
+.section-box h3{
+  font-size:28px;
+  color:#4B0082;
+  margin-bottom:20px;
+}
+
+/* ---------- Paragraphs ---------- */
+.section-box p{
+  font-size:18px;
+  text-align:center;
+  margin-bottom:15px;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background: linear-gradient(90deg,#001f4d,#4B0082);
+  color:white;
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+}
+
+/* ---------- Scroll Animation ---------- */
+@keyframes floatUp {
+  0% {opacity:0; transform: translateY(40px);}
+  100% {opacity:1; transform: translateY(0);}
+}
 </style>
 </head>
 <body>
 
+<!-- Header -->
 <header>
-  <h2>Nepal Police School, Sanga Kavre</h2>
+  <div style="display:flex; align-items:center;">
+    <img src="https://i.ibb.co/n864tc23/nps.webp" alt="NPS Logo">
+    <h1>Nepal Police School, Sanga Kavre</h1>
+  </div>
   <nav>
     <a href="#" class="nav-link">Home</a>
     <a href="#" class="nav-link">Students</a>
     <a href="#" class="nav-link">Developer</a>
-    <a href="#" class="nav-link">Official site</a>
     <a href="second.html" class="signup-btn">Sign Up</a>
   </nav>
 </header>
 
+<!-- Hero -->
 <section class="hero">
-  <h1>Shaping Future Leaders</h1>
+  <h1>🎓 Shaping Future Leaders</h1>
   <p>Discipline • Knowledge • Integrity</p>
 </section>
 
-<section class="cards">
-  <div class="card">
-    <h3>🎯 Our Vision</h3>
-    <p>To create disciplined and responsible citizens who excel academically and morally.</p>
-  </div>
-  <div class="card">
-    <h3>🚀 Our Ambition</h3>
-    <p>Nurturing leadership, confidence, and innovation through quality education.</p>
-  </div>
-  <div class="card">
-    <h3>📚 Student Life</h3>
-    <p>Balanced life with academics, sports, discipline, and extracurricular activities.</p>
-  </div>
-</section>
+<!-- About NPS -->
+<div class="section-box show">
+  <h3>🏫 About Nepal Police School (NPS)</h3>
+  <p>Nepal Police School (often called Police School or NPS) is a prestigious co‑educational residential school established in 2040 B.S. (1983 CE) under the welfare program of the Nepal Police Organization. The central school in Sanga, Kavre was founded by the late Inspector General of Police D.B. Lama to educate children of police personnel and later opened to civilian students as well.</p>
+  <p>Located about 21 km east of Kathmandu on a hillside campus of over 200 acres of forests and orchards, NPS offers a disciplined, healthy learning environment. It admits students from Grade 4 to Grade 12, following the NEB curriculum, preparing learners for SEE and SLC examinations.</p>
+  <p>The school’s motto is: <strong>“Better Schooling for Ideal Citizens.”</strong></p>
+</div>
 
-<footer>© 2025 Nepal Police School | Student Project</footer>
+<!-- Vision & Mission -->
+<div class="section-box">
+  <h3>🎯 Vision & Mission</h3>
+  <p>🔹 <strong>Vision:</strong> To transform Nepal Police School into an ideal learning center that molds students into disciplined, competent, and socially responsible citizens.</p>
+  <p>🔹 <strong>Mission:</strong> To foster excellence, creativity, compassion, leadership, and ecological concern in students. The mission emphasizes forming conscientious learners who can face challenges with confidence and contribute positively to society.</p>
+</div>
+
+<!-- Principal Message -->
+<div class="section-box">
+  <h3>📜 Principal’s Message</h3>
+  <p>From Mohan Paudel, Principal of NPS:</p>
+  <p>“Nepal Police School, Sanga is committed to quality education that nurtures holistic development. The peaceful campus, experienced teachers, and disciplined environment encourage students to think critically, creatively, and independently. Our goal is to prepare empathetic, resilient, and responsible young leaders ready for real‑world challenges.”</p>
+  <p>📌 “At NPS we believe quality education means holistic development — strong academics, creative thinking, moral values, and leadership skills in every student.”</p>
+</div>
+
+<!-- Admissions -->
+<div class="section-box">
+  <h3>🎓 Admissions Information</h3>
+  <p>Admissions are generally open for Classes IV–VIII and XI (Science and Management streams). New sessions typically begin after SEE results with notices issued in Fagun.</p>
+  <p>Entrance Exam Details:</p>
+  <p>Written exams for English, Nepali, Mathematics and Science (Grades IV–VIII).</p>
+  <p>Science stream students prepare for MCQs in higher‑level subjects; Management stream for combined language and math.</p>
+  <p>Admission decisions are based on entrance exam results and interviews. This structured process ensures quality and merit‑based selection.</p>
+</div>
+
+<!-- Facilities & Campus Life -->
+<div class="section-box">
+  <h3>📚 Facilities & Campus Life</h3>
+  <p>🏡 <strong>Residential Life:</strong> Hostel living is mandatory for most grades. A supportive team — including wardens and staff — ensures students feel safe and part of a community.</p>
+  <p>🚍 <strong>Transportation:</strong> Transportation is available for day scholar students, especially in the Management stream (Grades 11–12).</p>
+  <p>🔬 <strong>Laboratories & Library:</strong> Fully equipped labs for Physics, Chemistry, Biology, and Computer Science support experiential learning. A well‑stocked library with books and digital resources fosters academic research.</p>
+  <p>🏃‍♂️ <strong>Sports & Physical Activities:</strong> The campus includes a sports complex with football, volleyball, tennis, and a gymnasium for regular physical training.</p>
+  <p>🏥 <strong>Medical Support:</strong> Two dedicated medical halls with staff ensure 24/7 care; a doctor visits daily for routine check‑ups and health support.</p>
+  <p>🍃 <strong>Environment:</strong> Located in a pollution‑free, green hillside area, the campus provides a peaceful atmosphere that promotes focus and wellness.</p>
+</div>
+
+<!-- Student Activities & Achievements -->
+<div class="section-box">
+  <h3>📅 Student Activities & Achievements</h3>
+  <p>NPS doesn’t just focus on classroom learning — students participate in sports, cultural events, and community programs.</p>
+  <p>The school has hosted events like the IGP Running Trophy Football Championship, where students showcase teamwork and athletic skills. Students also engage in cultural performances, science exhibitions, and leadership opportunities that support holistic development.</p>
+</div>
+
+<!-- Footer -->
+<footer>
+  📍 <strong>Location:</strong> Sanga, Kavre, Nepal<br>
+  📞 <strong>General:</strong> 011‑661301 / +977 9851286005<br>
+  📞 <strong>Academic Admin:</strong> 011‑664670<br>
+  📞 <strong>Fees:</strong> 011‑663495 / +977 9851294944<br>
+  📧 <strong>Email:</strong> info@nps.edu.np<br>
+  <br>
+  © 2026 Nepal Police School, Sanga Kavre | All rights reserved
+</footer>
 
 <script>
-const navLinks = document.querySelectorAll('.nav-link');
+// Scroll Animation
+const boxes = document.querySelectorAll('.section-box');
+window.addEventListener('scroll', checkBoxes);
 
+function checkBoxes() {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  boxes.forEach(box => {
+    const boxTop = box.getBoundingClientRect().top;
+    if(boxTop < triggerBottom) {
+      box.classList.add('show');
+    }
+  });
+}
+
+// Lock Nav Links until Sign Up
+const navLinks = document.querySelectorAll('.nav-link');
 navLinks.forEach(link => {
-  link.addEventListener('click', function (e) {
-    e.preventDefault(); // always stop navigation
+  link.addEventListener('click', function(e){
+    e.preventDefault();
     alert("❌ Access denied.\n👉 Please sign up first to continue.");
   });
 });
 </script>
-
 
 </body>
 </html>
