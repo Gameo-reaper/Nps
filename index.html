@@ -1,119 +1,111 @@
-<!DOCTYPE html>
+
+  <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signup - NPS</title>
-  
-  <!-- External CSS (if any) -->
-  <link rel="stylesheet" href="style.css">
-  
-  <style>
-    /* ---------- Background ---------- */
-    body {
-      background-image: url("https://i.ibb.co/9fWTqp3/paper-gf.jpg" alt="paper-gf" border="0")      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<title>Nepal Police School | Landing</title>
+<style>
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:#f3f4f6;
+  color:#333;
+}
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 50px;
+  background:linear-gradient(90deg,#001f4d,#4B0082);
+  color:white;
+  box-shadow:0 6px 18px rgba(0,0,0,0.3);
+}
+header h2{margin:0;font-size:22px;}
+nav a{
+  color:white; margin:0 15px; font-weight:500; text-decoration:none; cursor:pointer;
+}
+nav a:hover{text-decoration:underline;}
+.signup-btn{
+  padding:8px 18px;
+  border-radius:20px;
+  font-weight:bold;
+  border:none;
+  background:white;
+  color:#4B0082;
+  text-decoration:none;
+  cursor:pointer;
+  transition:0.3s;
+}
+.signup-btn:hover{background:#ffccff;}
 
-    /* ---------- Center Box ---------- */
-    .box {
-      width: 350px;
-      margin: 100px auto;
-      padding: 30px;
-      background-color: rgba(255, 255, 255, 0.85);
-      text-align: center;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #00000050;
-    }
+/* HERO */
+.hero{
+  text-align:center; padding:70px 20px; background:linear-gradient(135deg,#e9e6ff,#f5f3ff);
+}
+.hero h1{font-size:36px;margin-bottom:10px;}
+.hero p{font-size:18px;color:#555;}
 
-    h2 {
-      margin-bottom: 20px;
-    }
-
-    input {
-      width: 80%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
-
-    button {
-      padding: 10px 20px;
-      margin-top: 10px;
-      cursor: pointer;
-      border: none;
-      border-radius: 5px;
-      background-color: #4CAF50;
-      color: white;
-      font-size: 16px;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
-
-    #result {
-      margin-top: 15px;
-      font-size: 16px;
-      font-weight: bold;
-      color: #333;
-    }
-
-    .terms {
-      font-size: 12px;
-      color: #555;
-      margin-top: 20px;
-    }
-  </style>
+/* INFO CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px; padding:60px;
+}
+.card{
+  background:white; padding:30px; border-radius:20px; box-shadow:0 12px 30px rgba(0,0,0,0.15); transition:0.3s;
+}
+.card:hover{transform:translateY(-10px); box-shadow:0 20px 40px rgba(0,0,0,0.25);}
+.card h3{margin-top:0;color:#4B0082;}
+footer{text-align:center;padding:20px;background:#1a1a2e;color:#ccc;font-size:14px;}
+</style>
 </head>
 <body>
 
-  <div class="box">
-    <h2>Signup</h2>
+<header>
+  <h2>Nepal Police School, Sanga Kavre</h2>
+  <nav>
+    <a href="#" class="nav-link">Home</a>
+    <a href="#" class="nav-link">Students</a>
+    <a href="#" class="nav-link">Developer</a>
+    <a href="#" class="nav-link">Official site</a>
+    <a href="second.html" class="signup-btn">Sign Up</a>
+  </nav>
+</header>
 
-    <input type="number" id="roll" placeholder="Roll No (1–40)">
-    <button onclick="signup()">Generate Password</button>
+<section class="hero">
+  <h1>Shaping Future Leaders</h1>
+  <p>Discipline • Knowledge • Integrity</p>
+</section>
 
-    <p id="result"></p>
-
-    <!-- Hidden signup button -->
-    <button id="signupBtn" style="display:none;" onclick="goNext()">
-      Sign Up
-    </button>
+<section class="cards">
+  <div class="card">
+    <h3>🎯 Our Vision</h3>
+    <p>To create disciplined and responsible citizens who excel academically and morally.</p>
   </div>
-
-  <div class="terms">
-    <center>After clicking on Sign Up you agree to our Terms and Policy</center>
+  <div class="card">
+    <h3>🚀 Our Ambition</h3>
+    <p>Nurturing leadership, confidence, and innovation through quality education.</p>
   </div>
+  <div class="card">
+    <h3>📚 Student Life</h3>
+    <p>Balanced life with academics, sports, discipline, and extracurricular activities.</p>
+  </div>
+</section>
 
-  <script>
-    function signup() {
-      let roll = document.getElementById("roll").value;
+<footer>© 2025 Nepal Police School | Student Project</footer>
 
-      if (roll >= 1 && roll <= 40) {
-        let password = "class" + roll.toString().padStart(2, "0") + "@2026";
-        document.getElementById("result").innerHTML =
-          "Your Password:<br><b>" + password + "</b>";
+<script>
+const navLinks = document.querySelectorAll('.nav-link');
 
-        // Show signup button
-        document.getElementById("signupBtn").style.display = "block";
-      } else {
-        document.getElementById("result").innerText = "Invalid Roll Number ❌";
-        document.getElementById("signupBtn").style.display = "none";
-      }
-    }
+navLinks.forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault(); // always stop navigation
+    alert("❌ Access denied.\n👉 Please sign up first to continue.");
+  });
+});
+</script>
 
-    function goNext() {
-      window.location.href = "second.html"; // make sure this page exists
-    }
-  </script>
 
 </body>
 </html>

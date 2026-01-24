@@ -1,106 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel="stylesheet" href="style.css">
-
-  <style>
-    body {
-      background-image: url("https://i.ibb.co/9fWTqp3/paper-gf.jpg" alt="paper-gf" border="0">"); /* replace with your background */
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .box {
-      width: 350px;
-      margin: 100px auto;
-      padding: 30px;
-      background-color: rgba(255, 255, 255, 0.85);
-      text-align: center;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #00000050;
-    }
-
-    h2 {
-      margin-bottom: 20px;
-    }
-
-    input {
-      width: 80%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
-
-    button {
-      padding: 10px 20px;
-      margin-top: 10px;
-      cursor: pointer;
-      border: none;
-      border-radius: 5px;
-      background-color: #4CAF50;
-      color: white;
-      font-size: 16px;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
-
-    #msg {
-      margin-top: 15px;
-      font-size: 16px;
-      font-weight: bold;
-      color: red;
-    }
-
-    .terms {
-      font-size: 12px;
-      color: #555;
-      margin-top: 20px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Sign Up - Nepal Police School</title>
+<style>
+body{
+  font-family:'Segoe UI',sans-serif;
+  background:#f3f4f6;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  min-height:100vh;
+  margin:0;
+}
+form{
+  background:white;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  width:320px;
+  margin-bottom:20px;
+}
+input{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:20px;
+  background:#4B0082;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+button:hover{background:#6f00ff;}
+p{font-size:14px; text-align:center; color:#555;}
+a{color:#4B0082; font-weight:bold; text-decoration:none;}
+a:hover{text-decoration:underline;}
+h2{text-align:center; color:#4B0082; margin-bottom:15px;}
+</style>
 </head>
 <body>
 
-  <div class="box">
-    <h2>Login</h2>
+<!-- STUDENT SIGNUP FORM -->
+<form id="studentForm" action="https://formspree.io/f/xwvlwzgl" method="POST">
+  <h2>Student Sign Up</h2>
+  <input type="text" name="student_name" id="name" placeholder="Enter Name" required>
+  <input type="text" name="roll_number" id="roll" placeholder="Enter Roll No" required>
+  <input type="hidden" name="_next" value="third.html">
+  <button type="submit">Sign Up</button>
 
-    <input type="number" id="roll" placeholder="Roll No">
-    <input type="password" id="pass" placeholder="Password">
+  <p>
+    Are you a teacher, parent, or adult? 
+    <a href="#" id="teacherLink">Try this option</a>
+  </p>
+</form>
 
-    <button onclick="login()">Login</button>
+<!-- TEACHER FORM (HIDDEN BY DEFAULT) -->
+<form id="teacherForm" style="display:none;">
+  <h2>Teacher / Adult Sign Up</h2>
+  <input type="text" id="teacherName" placeholder="Enter Name / Username" required>
+  <input type="email" id="teacherEmail" placeholder="Enter Email" required>
+  <button type="submit">Continue</button>
 
-    <p id="msg"></p>
-  </div>
+  <p>
+    Back to <a href="#" id="backToStudent">Student Sign Up</a>
+  </p>
+</form>
 
-  <div class="terms">
-    <center>After clicking on the login button you will agree to our Terms and Policy.</center>
-  </div>
+<script>
+// STUDENT FORM
+const studentForm = document.getElementById("studentForm");
+studentForm.addEventListener("submit", function(e){
+  e.preventDefault();
+  const name = document.getElementById("name").value;
+  const roll = document.getElementById("roll").value;
 
-  <script>
-    function login() {
-      let roll = document.getElementById("roll").value;
-      let pass = document.getElementById("pass").value;
+  // Save locally
+  localStorage.setItem("isSignedUp", "true");
+  localStorage.setItem("studentName", name);
+  localStorage.setItem("rollNo", roll);
 
-      let correctPass = "class" + roll.toString().padStart(2, "0") + "@2026";
-
-      if (roll >= 1 && roll <= 40 && pass === correctPass) {
-        window.location.href = "third.html"; // make sure third.html exists
-      } else {
-        document.getElementById("msg").innerText = "Wrong Roll or Password";
-      }
+  // Send data to Formspree
+  const formData = new FormData(studentForm);
+  fetch(studentForm.action, {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(response => {
+    if(response.ok){
+      alert("🎉 Student Sign Up Successful! Redirecting...");
+      window.location.href = "third.html";
+    } else {
+      alert("Oops! Submission failed.");
     }
-  </script>
+  })
+  .catch(error => alert("Network error. Try again."));
+});
+
+// TOGGLE TEACHER FORM
+const teacherLink = document.getElementById("teacherLink");
+const teacherForm = document.getElementById("teacherForm");
+const backToStudent = document.getElementById("backToStudent");
+
+teacherLink.addEventListener("click", function(e){
+  e.preventDefault();
+  studentForm.style.display = "none";
+  teacherForm.style.display = "block";
+});
+
+backToStudent.addEventListener("click", function(e){
+  e.preventDefault();
+  teacherForm.style.display = "none";
+  studentForm.style.display = "block";
+});
+
+// TEACHER FORM SUBMIT
+teacherForm.addEventListener("submit", function(e){
+  e.preventDefault();
+  const tName = document.getElementById("teacherName").value;
+  const tEmail = document.getElementById("teacherEmail").value;
+
+  localStorage.setItem("teacherName", tName);
+  localStorage.setItem("teacherEmail", tEmail);
+
+  alert("✅ Teacher / Adult Registered! Redirecting to portal...");
+  // redirect teacher to a different page if needed
+  window.location.href = "teacher-portal.html"; // make this page
+});
+</script>
 
 </body>
 </html>

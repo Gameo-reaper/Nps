@@ -36,10 +36,21 @@ nav a {
   font-weight: bold;
   border-radius: 8px;
   transition: 0.3s;
+  color: white;
 }
 nav a:hover {
   background: linear-gradient(45deg, #ff66cc, #9900cc);
   box-shadow: 0 0 12px rgba(255,102,204,0.6);
+}
+
+/* ---------- User Greeting ---------- */
+#userGreeting {
+  background: rgba(255,255,255,0.2);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
 }
 
 /* ---------- Hero ---------- */
@@ -145,94 +156,6 @@ section p {
   transform: scale(1.05);
   box-shadow: 0 12px 25px rgba(0,0,0,0.3);
 }
-.center-link{
-  display: block;        /* makes link act like a box */
-  text-align: center;    /* centers text */
-  margin: 20px auto;
-  font-size: 18px;
-  display: inline-block;
-  padding: 10px 20px;
-  background: purple;
-  color: white;
-  border-radius: 8px;
-}
-
-
-/* ---------- Video ---------- */
-.video-container {
-  display: flex;
-  justify-content: center;
-  margin: 40px 0;
-}
-.video-container video {
-  height: 500px;
-  border-radius: 120px;
-  max-width: 100%;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* ---------- Notice Box ---------- */
-.notice-box {
-  width: 90%;
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 15px 20px;
-  border-radius: 12px;
-  background: #800080;
-  color: white;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  overflow: hidden;
-  position: relative;
-}
-.notice-box h3 { margin-bottom: 10px; color: #ffcc00; text-align: center; }
-.notice-box ul {
-  list-style: none;
-  animation: scrollNotices 12s linear infinite;
-  margin: 0;
-  padding: 0;
-}
-.notice-box ul li {
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-}
-@keyframes scrollNotices {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-100%); }
-}
-
-/* ---------- Login Panel ---------- */
-.login-panel {
-  width: 320px;
-  max-width: 90%;
-  margin: 50px auto;
-  padding: 25px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-.login-panel h3 { text-align: center; color: #4B0082; margin-bottom: 20px; }
-.login-panel input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-}
-.login-panel button {
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
-  border: none;
-  background: linear-gradient(45deg, #800080, #ff66cc);
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.login-panel button:hover {
-  background: linear-gradient(45deg, #ff66cc, #800080);
-}
 
 /* ---------- Footer ---------- */
 footer {
@@ -249,7 +172,6 @@ footer p { margin: 5px 0; }
   header { flex-direction: column; text-align: center; }
   nav a { display: block; margin: 8px 0; }
   .gallery img { width: 90%; height: auto; }
-  .notice-box ul { animation-duration: 20s; }
 }
 </style>
 </head>
@@ -267,11 +189,12 @@ footer p { margin: 5px 0; }
     <a href="developer.html">Developer</a>
     <a href="https://www.nps.edu.np" target="_blank">Official Site</a>
   </nav>
+  <div id="userGreeting"></div> <!-- Shows logged-in name -->
 </header>
 
 <!-- Hero -->
 <div class="hero">
-  <h2>Discpline Decorum and Deginity</h2>
+  <h2>Discipline, Decorum, and Dignity</h2>
 </div>
 
 <!-- Welcome -->
@@ -283,20 +206,8 @@ footer p { margin: 5px 0; }
   <p>
     This portal allows students to securely access academic records, notices, and learning resources using their roll number and password.
   </p>
-  <a href="https://www.nps.edu.np" target="_blank" class="center-link">Visit Official Website</a>
+  <a href="https://www.nps.edu.np" target="_blank" class="btn">Visit Official Website</a>
 </section>
-
-<!-- Notice Box -->
-<div class="notice-box">
-  <h3>Latest Notices</h3>
-  <ul>
-    <li>Exam Schedule for Class 10 released.</li>
-    <li>Admission for new session 2026 will start.</li>
-    <li>Library will remain open till 3 PM on school day.</li>
-    <li>Sports week scheduled on falgun.</li>
-    <li>Covid safety guidelines updated.</li>
-  </ul>
-</div>
 
 <!-- Floating Highlight -->
 <p class="floating-paragraph">
@@ -314,60 +225,28 @@ footer p { margin: 5px 0; }
   </div>
 </section>
 
-<!-- Video -->
-<section>
-  <h2>Video Overview</h2>
-  <div class="video-container">
-<video id="autoVideo" muted playsinline>
-        <source src="NPS,_SANGA_THROUGH_LENS❤️💕(360p).mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</section>
-
 <!-- Footer -->
 <footer>
-  <div class="footer-container">
-    <div class="footer-section">
-      <h3>Contact</h3>
-      <p>Sanga, Kavre, Nepal</p>
-      <p>011-661301 , +977 9851286005</p>
-      <p>011-664670 , 011-663495</p>
-      <p>Email: info@nps.edu.np</p>
-    </div>
-    <div class="footer-section">
-      <h3>Navigate</h3>
-      <p>About Us</p>
-      <p>Academics</p>
-      <p>Admissions</p>
-      <p>Notice Board</p>
-      <p>Gallery</p>
-      <p>Contact Us</p>
-    </div>
-  </div>
-  <p class="footer-bottom">
-    &copy; 2026 Nepal Police School, Sanga Kavre. All rights reserved.
-  </p>
+  <h3>Contact</h3>
+  <p>Sanga, Kavre, Nepal</p>
+  <p>011-661301 , +977 9851286005</p>
+  <p>Email: info@nps.edu.np</p>
+  <p>&copy; 2026 Nepal Police School, Sanga Kavre. All rights reserved.</p>
 </footer>
 
-<!-- ✅ ONLY ADDITION -->
+<!-- Script to show logged-in user -->
 <script>
-const video = document.getElementById("autoVideo");
+const userDiv = document.getElementById("userGreeting");
+let studentName = localStorage.getItem("studentName");
+let teacherName = localStorage.getItem("teacherName");
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        video.play();
-      } else {
-        video.pause();
-      }
-    });
-  },
-  { threshold: 0.6 }
-);
-
-observer.observe(video);
+if(studentName){
+  userDiv.textContent = "Welcome, " + studentName;
+} else if(teacherName){
+  userDiv.textContent = "Welcome, " + teacherName;
+} else {
+  userDiv.textContent = ""; // no one logged in yet
+}
 </script>
 
 </body>
