@@ -37,10 +37,15 @@ nav a {
   border-radius: 8px;
   transition: 0.3s;
   color: white;
+  font-size: 16px;
 }
+
 nav a:hover {
   background: linear-gradient(45deg, #ff66cc, #9900cc);
   box-shadow: 0 0 12px rgba(255,102,204,0.6);
+  border-radius: 8px;
+  padding:6px 12px;
+  transition:0.3s;
 }
 
 /* ---------- User Greeting ---------- */
@@ -225,15 +230,50 @@ main {
     padding: 20px;
   }
 }
+/* Container and Card styles remain the same as previous response */
 
+.profile-img {
+  position: relative;
+  z-index: 2; /* Ensures it sits above the background */
+}
+
+.profile-img img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%; /* Makes it a perfect circle */
+  object-fit: cover;  /* Prevents the image from stretching */
+  background-color: #fff;
+  border: 4px solid #fff; /* White ring around the photo */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+}
+
+/* Optional: Slight adjustment to the name tag to give the image space */
+.name-tag {
+  background-color: #2b367e;
+  color: white;
+  padding: 18px 25px;
+  border-radius: 0 0 45px 0;
+  margin-left: -20px;
+  margin-top: -20px;
+  min-width: 160px;
+}
+
+.sub-text {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-top: 5px;
+}
 
 /* ---------- Footer ---------- */
 footer {
-  background: linear-gradient(90deg, #001f4d, #4B0082);
-  color: white;
-  text-align: left;
-  padding: 35px 40px;
+  background: linear-gradient(90deg,#001f4d,#4B0082);
+  color:white;
+  text-align:center;
+  padding:30px;
+  font-size:14px;
 }
+
 footer h3 { margin-bottom: 15px; color: #ffcc00; }
 footer p { margin: 5px 0; }
 
@@ -242,6 +282,160 @@ footer p { margin: 5px 0; }
   header { flex-direction: column; text-align: center; }
   nav a { display: block; margin: 8px 0; }
   .gallery img { width: 90%; height: auto; }
+}
+.footer-credit {
+  font-size: 15px;
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+
+.footer-credit span {
+  color: #ffcc00;
+  font-weight: bold;
+}
+.media-box {
+    /* Background and Shape */
+    background-color: #ffffff;
+    border-radius: 15px;
+    
+    /* Spacing */
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 900px;
+    
+    /* Layout: This puts text left and video right */
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    
+    /* Modern Shadow */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.content-left {
+    /* Takes up 50% of the space */
+    flex: 1;
+}
+
+.content-left h2 {
+    margin-top: 0;
+    color: #1f3c88;
+}
+
+/* ===== FINAL CLEAN VERSION ===== */
+
+.media-box {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 1000px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.content-left {
+    flex: 1 1 400px;
+}
+
+.video-right {
+    flex: 1 1 400px;
+    min-width: 0;   /* VERY IMPORTANT */
+}
+
+.video-right video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+    .media-box {
+        flex-direction: column;
+    }
+}
+
+/* Responsive: Stack them on top of each other on mobile */
+@media (max-width: 768px) {
+    .media-box {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.testimonial-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.media-box {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 30px;
+
+    display: flex;
+    flex-wrap: wrap; /* 🔥 important */
+    gap: 30px;
+}
+
+.content-left {
+    flex: 1 1 300px;
+}
+
+/* ===== Testimonial & Video Section Fix ===== */
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.testimonial-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.media-box {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 1000px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.content-left {
+    flex: 1 1 350px;
+}
+
+
+
+/* Mobile */
+@media (max-width: 768px) {
+    .media-box {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 </style>
 </head>
@@ -257,7 +451,7 @@ footer p { margin: 5px 0; }
     <a href="third.html">Home</a>
     <a href="fourth.html">Students</a>
     <a href="developer.html">Developer</a>
-    <a href="https://www.nps.edu.np" target="_blank">Official Site</a>
+    
   </nav>
   <div id="userGreeting"></div> <!-- Shows logged-in name -->
 </header>
@@ -276,7 +470,7 @@ footer p { margin: 5px 0; }
   <p>
     This portal allows students to securely access academic records, notices, and learning resources using their roll number and password.
   </p>
-  <a href="https://www.nps.edu.np" target="_blank" class="btn">Visit Official Website</a>
+  <center><a href="https://www.nps.edu.np" target="_blank" class="btn">Visit Official Website</a></center>
 </section>
 
 <!-- Floating Highlight -->
@@ -284,16 +478,7 @@ footer p { margin: 5px 0; }
   Explore our modern library, labs, and sports facilities designed to nurture creativity, learning, and excellence.
 </p>
 
-<!-- Gallery -->
-<section>
-  <h2>Our Campus & Students</h2>
-  <div class="gallery">
-    <img src="https://i.ibb.co/Rkq0XsZS/nps-homepage-main-image.png">
-    <img src="https://i.ibb.co/Xf1XXTx4/95f8d1bd-fea8-45af-baf5-4d4f3b5574b5.png">
-    <img src="https://i.ibb.co/4gwh1WK0/3.png">
-    <img src="https://i.ibb.co/67Sp18r9/file-000000008b807206b28f391662e2cb1c.png">
-  </div>
-</section>
+
 
 <!--From here-->
 <section class="info-section">
@@ -351,14 +536,97 @@ footer p { margin: 5px 0; }
     </p>
   </section>
   <!--to HERE-->
+  <section>
+  <video width="100%" controls>
+    <source src="NPS,_SANGA_THROUGH_LENS❤️💕(360p).mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+</section>
+<section class="testimonial-section">
+  <div class="card-container">
 
+    <div class="testimonial-card">
+      <div class="card-header">
+        <div class="name-tag">
+          <h3>Ranjan thapa</h3>
+          <span class="sub-text">---</span>
+        </div>
+        <div class="profile-img">
+          <img src="https://i.ibb.co/Kz5DydK5/employee.jpg" alt="Anjana Thakuri">
+        </div>
+      </div>
+
+      <div class="card-content">
+        <p>
+          Greetings to my fellow alumni! Time may have passed, but the memories of the parade grounds and the classrooms at NPS Sanga Kavre remain vivid. This school didn't just give us an education; it gave us a brotherhood and the strength to serve our nation with integrity. I am forever grateful for the years spent within these walls."
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="testimonial-section">
+  <div class="card-container">
+
+    <div class="testimonial-card">
+      <div class="card-header">
+        <div class="name-tag">
+          <h3>Anjana Thakuri</h3>
+          <span class="sub-text">---</span>
+        </div>
+        <div class="profile-img">
+          <img src="https://i.ibb.co/BvvKQhD/employee2.jpg" alt="Anjana Thakuri">
+        </div>
+      </div>
+
+      <div class="card-content">
+        <p>
+          Dear Nepal Police School, As alumni, we come together today with immense pride and gratitude in our hearts for the foundation this institution provided us. The discipline, values, and academic excellence we gained at Sanga have been the guiding stars of our professional lives. We owe our success to the dedicated mentors who shaped our character."
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Video Section -->
+<section>
+  <div class="media-box">
+
+    <div class="content-left">
+      <h2>How to Pay Fees from the App Online 💳</h2>
+      <p>
+        Follow the steps in this video to learn how to pay your childs school fees
+        securely and quickly using our mobile app.
+      </p>
+    </div>
+
+    <div class="video-right">
+      <video controls>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+  </div>
+</section>
 <!-- Footer -->
 <footer>
-  <h3>Contact</h3>
-  <p>Sanga, Kavre, Nepal</p>
-  <p>011-661301 , +977 9851286005</p>
-  <p>Email: info@nps.edu.np</p>
-  <p>&copy; 2026 Nepal Police School, Sanga Kavre. All rights reserved.</p>
+  📍 <strong>Location:</strong> Sanga, Kavre, Nepal<br>
+  📞 <strong>General:</strong> 011‑661301 / +977 9851286005<br>
+  📞 <strong>Academic Admin:</strong> 011‑664670<br>
+  📞 <strong>Fees:</strong> 011‑663495 / +977 9851294944<br>
+  📧 <strong>Email:</strong> info@nps.edu.np<br>
+  <p class="footer-credit">
+  Inspired by <span>Nepal Police Education System And MR. Shweewan Bhandari sir</span>
+</p>
+
+<p class="footer-credit">
+  Powered by <span>Ridam Tech Solutions and group 26</span>
+</p>
+  <br>
+  © 2026 Nepal Police School, Sanga Kavre | All rights reserved
 </footer>
 
 <!-- Script to show logged-in user -->

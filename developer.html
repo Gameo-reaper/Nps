@@ -64,6 +64,14 @@ nav a:hover {
   background: linear-gradient(45deg, #ff66cc, #9900cc);
   box-shadow: 0 0 12px rgba(255,102,204,0.6);
 }
+#userGreeting{
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background: rgba(255,255,255,0.2);
+  padding: 5px 12px;
+  border-radius: 20px;
+}
 body{
   margin:0;
   font-family: "Segoe UI", Tahoma, sans-serif;
@@ -151,11 +159,43 @@ body{
 }
 /* footer */
 footer {
-  background:#1f3c88;
+  background: linear-gradient(90deg,#001f4d,#4B0082);
   color:white;
   text-align:center;
-  padding:10px;
-  margin-top:20px;
+  padding:30px;
+  font-size:14px;
+}
+
+footer h3 { margin-bottom: 15px; color: #ffcc00; }
+footer p { margin: 5px 0; }
+
+.footer-credit {
+  font-size: 15px;
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+
+.footer-credit span {
+  color: #ffcc00;
+  font-weight: bold;
+}
+.yt {
+  box-shadow: rgb(121, 119, 119) 0px 1px 3px;
+  padding: 20px;
+  margin-top: 40px;
+  background-color: #fff;
+  border-radius: 16px;
+
+}
+.yt1{
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: rgb(46, 46, 221);
+  color: rgb(243, 243, 243);
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 </style>
 </head>
@@ -172,8 +212,8 @@ footer {
     <a href="third.html">Home</a>
     <a href="fourth.html">Students</a>
     <a href="developer.html">Developer</a>
-    <a href="https://www.nps.edu.np" target="_blank">Official Site</a>
   </nav>
+  <div id="userGreeting"></div> <!-- User Greeting will be injected here by JavaScript -->
 </header>
     <body>
 
@@ -236,17 +276,66 @@ footer {
 
 </div>
 
+<div class="yt5">
+  <h2>Group 26</h2>
+  <p>Group 26 means the members of the development team for this school project.</p>
+  <h3>Members and supporter</h3>
+  <ul>
+    <li>Aaditya kr. mandal</li>
+    <li>Priyanshu Mandal</li>
+    <li>Megas Ramuli</li>
+    <li>prince singh</li>
+    <li>Aryan Shah</li>
+    <li>Bhupendra Bista</li>
+    <li>Sankalpa baniya</li>
+    <li>Jenish bhandari</li>
+</div>
+<div id="yt">
+  <h3>📺 YouTube Channel</h3>
+  <p>
+    I also have a YouTube channel where I share games related and updates.
+    Feel free to check it out and subscribe for more content!
+  </p>
+  <a href="https://www.youtube.com/@Darkgamer_yt907" target="_blank" class="yt1">Visit My YouTube account</a>
+</div>
 <div class="disclaimer">
   <strong>Disclaimer:</strong>  
   This website is a student project created for learning purposes and in future its going to add more classes to it.
 </div>
-
-<footer>
-  © 2026 Nepal Police School - Class 6D Portal
-</footer>
-
-
 </section>
 
+  <footer>
+  📍 <strong>Location:</strong> Sanga, Kavre, Nepal<br>
+  📞 <strong>General:</strong> 011‑661301 / +977 9851286005<br>
+  📞 <strong>Academic Admin:</strong> 011‑664670<br>
+  📞 <strong>Fees:</strong> 011‑663495 / +977 9851294944<br>
+  📧 <strong>Email:</strong> info@nps.edu.np<br>
+  <p class="footer-credit">
+  Inspired by <span>Nepal Police Education System And MR. Shweewan Bhandari sir</span>
+</p>
+
+<p class="footer-credit">
+  Powered by <span>Ridam Tech Solutions and group 26</span>
+</p>
+  <br>
+  © 2026 Nepal Police School, Sanga Kavre | All rights reserved
+</footer>
+
 </body>
+<script>
+  // JavaScript to display user greeting
+  const userDiv = document.getElementById("userGreeting");
+let studentName = localStorage.getItem("studentName");
+let teacherName = localStorage.getItem("teacherName");
+
+if(studentName){
+  userDiv.textContent = "Welcome, " + studentName;
+} else if(teacherName){
+  userDiv.textContent = "Welcome, " + teacherName;
+} else {
+  userDiv.textContent = ""; // no one logged in yet
+}
+
+
+</script>
 </html>

@@ -34,11 +34,13 @@ header h2 {
   font-size:22px;
 }
 nav a {
-  color:white;
-  margin:0 15px;
-  font-weight:500;
-  text-decoration:none;
-  cursor:pointer;
+  margin: 0 12px;
+  padding: 8px 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: 0.3s;
+  color: white;
+  size: 16px;
 }
 nav a:hover {
   background: linear-gradient(45deg, #ff66cc, #9900cc);
@@ -117,6 +119,35 @@ footer {
   0% {opacity:0; transform: translateY(40px);}
   100% {opacity:1; transform: translateY(0);}
 }
+
+/* here starts */
+.slideshow-container {
+  max-width: 800px;
+  position: relative;
+  margin: auto;
+}
+
+.slide {
+  display: none;
+}
+
+.fade {
+  animation: fadeEffect 1s;
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0.4}
+  to {opacity: 1}
+}
+/*end here*/
+
+/* Slideshow */
+.slideshow-container { max-width:1000px; position:relative; margin:20px auto; }
+.slide { display:none; }
+.slide img { width:100%; border-radius:8px; }
+.fade { animation: fadeEffect 1s; }
+@keyframes fadeEffect { from {opacity:0.4} to {opacity:1} }
+
 </style>
 </head>
 <body>
@@ -140,6 +171,35 @@ footer {
   <h1>🎓 Shaping Future Leaders</h1>
   <p>Discipline • Knowledge • Integrity</p>
 </section>
+
+<!-- Slideshow -->
+<div class="slideshow-container1">
+  <div class="slide fade">
+    <img src="https://i.ibb.co/Rkq0XsZS/nps-homepage-main-image.png" alt="NPS Main Image" border="0">
+  </div>
+  <div class="slide fade">
+    <img src="https://i.ibb.co/nNhFB3gs/Screenshot-2026-02-26-114223.png" alt="Screenshot-2026-02-26-114223" border="0" />
+    </div>
+  <div class="slide fade">
+<img src="https://i.ibb.co/QZLZ8f6/Screenshot-2026-02-26-114245.png" alt="Screenshot-2026-02-26-114245" border="0" />
+      </div>
+<div class="slide fade">
+<img src="https://i.ibb.co/XrKCrbpK/Screenshot-2026-02-26-121245.png" alt="Screenshot-2026-02-26-121245" border="0" />
+</div>
+<div class="slide fade">
+<img src="https://i.ibb.co/YTLM6hRG/Screenshot-2026-02-26-121325.png" alt="Screenshot-2026-02-26-121325" border="0" />
+</div>
+<div class="slide fade">
+  <img src="https://i.ibb.co/nsDmZ8Mk/Screenshot-2026-02-26-121456.png" alt="Screenshot-2026-02-26-121456" border="0" />
+</div>
+<div class="slide fade">
+  <img src="https://i.ibb.co/SXK9PqYs/Screenshot-29.png" alt="Screenshot-29" border="0" />
+</div>
+<div class="slide fade">
+ <img src="https://i.ibb.co/ch08LVqw/Screenshot-2026-01-20-105238.png" alt="Screenshot-2026-01-20-105238" border="0" />
+</div>
+</div>
+
 
 <!-- About NPS -->
 <div class="section-box show">
@@ -227,6 +287,19 @@ navLinks.forEach(link => {
     alert("❌ Access denied.\n👉 Please sign up first to continue.");
   });
 });
+
+// Slideshow
+let slideIndex = 0;
+function showSlides() {
+  let slides = document.getElementsByClassName("slide");
+  for(let i=0;i<slides.length;i++){ slides[i].style.display="none"; }
+  slideIndex++;
+  if(slideIndex>slides.length){ slideIndex=1; }
+  slides[slideIndex-1].style.display="block";
+  setTimeout(showSlides, 3000);
+}
+showSlides();
+
 </script>
 
 </body>
