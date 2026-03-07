@@ -31,6 +31,7 @@ header {
   top: 0;
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  flex-wrap: wrap;
 }
 
 /* Logo + title */
@@ -64,6 +65,7 @@ nav a:hover {
   background: linear-gradient(45deg, #ff66cc, #9900cc);
   box-shadow: 0 0 12px rgba(255,102,204,0.6);
 }
+
 #userGreeting{
   font-size: 16px;
   font-weight: bold;
@@ -72,13 +74,9 @@ nav a:hover {
   padding: 5px 12px;
   border-radius: 20px;
 }
-body{
-  margin:0;
-  font-family: "Segoe UI", Tahoma, sans-serif;
-  background:#f3f3f3;
-}
 
-/* main section */
+/* ---------- Developer Section ---------- */
+
 .developer-section{
   max-width:1100px;
   margin:40px auto;
@@ -138,6 +136,12 @@ body{
   padding:25px;
   border-radius:14px;
   box-shadow:0 6px 18px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 12px 25px rgba(0,0,0,0.2);
 }
 
 .card h3{
@@ -149,6 +153,35 @@ body{
   padding-left:20px;
 }
 
+/* group section */
+.yt5{
+  margin-top:40px;
+}
+
+/* youtube section */
+#yt{
+  box-shadow: rgb(121, 119, 119) 0px 1px 3px;
+  padding: 20px;
+  margin-top: 40px;
+  background-color: #fff;
+  border-radius: 16px;
+}
+
+.yt1{
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: rgb(46, 46, 221);
+  color: rgb(243, 243, 243);
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.yt1:hover{
+  background:#1f1f9c;
+}
+
 /* footer note */
 .disclaimer{
   margin-top:40px;
@@ -157,6 +190,7 @@ body{
   border-left:6px solid #ff9800;
   border-radius:10px;
 }
+
 /* footer */
 footer {
   background: linear-gradient(90deg,#001f4d,#4B0082);
@@ -179,30 +213,51 @@ footer p { margin: 5px 0; }
   color: #ffcc00;
   font-weight: bold;
 }
-.yt {
-  box-shadow: rgb(121, 119, 119) 0px 1px 3px;
-  padding: 20px;
-  margin-top: 40px;
-  background-color: #fff;
-  border-radius: 16px;
+
+/* ---------- MOBILE RESPONSIVE ---------- */
+
+@media (max-width:768px){
+
+header{
+  flex-direction:column;
+  text-align:center;
+}
+
+.logo-box{
+  flex-direction:column;
+}
+
+nav{
+  margin-top:10px;
+}
+
+nav a{
+  display:block;
+  margin:6px 0;
+}
+
+.developer-title{
+  font-size:28px;
+}
+
+.developer-text{
+  font-size:16px;
+}
+
+.developer-photo img{
+  width:180px;
+  height:180px;
+}
 
 }
-.yt1{
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: rgb(46, 46, 221);
-  color: rgb(243, 243, 243);
-  border-radius: 8px;
-  font-weight: bold;
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
+
 </style>
 </head>
 
 <body>
 
 <header>
+
   <div class="logo-box">
     <img src="https://i.ibb.co/n864tc23/nps.webp" alt="NPS Logo">
     <h1>Nepal Police School, Sanga Kavre</h1>
@@ -213,9 +268,10 @@ footer p { margin: 5px 0; }
     <a href="fourth.html">Students</a>
     <a href="developer.html">Developer</a>
   </nav>
-  <div id="userGreeting"></div> <!-- User Greeting will be injected here by JavaScript -->
+
+  <div id="userGreeting"></div>
+
 </header>
-    <body>
 
 <section class="developer-section">
 
@@ -223,119 +279,170 @@ footer p { margin: 5px 0; }
 
 <div class="developer-intro">
 
-  <div class="developer-photo">
-    <!-- replace image -->
-    <img src="https://i.ibb.co/1Y4JmmYx/Chat-GPT-Image-Oct-7-2025-04-19-03-PM.png" alt="Chat-GPT-Image-Oct-7-2025-04-19-03-PM" border="0" alt="Developer Photo">
-  </div>
+<div class="developer-photo">
+<img src="https://i.ibb.co/1Y4JmmYx/Chat-GPT-Image-Oct-7-2025-04-19-03-PM.png" alt="Developer Photo">
+</div>
 
-  <div class="developer-text">
-    <p>
-      Hello! I am the developer of this website.
-      I am a student of <strong>Nepal Police School, Sanga Kavre</strong>.
-      This website is created as a school project to help students
-      access academic information and notices easily, it will also help me for my portfiolio and resume building.
-    </p>
-    <p>
-      I am passionate about learning web development,Ethical hacking and improving
-      my technical skills step by step.
-    </p>
-  </div>
+<div class="developer-text">
+
+<p>
+Hello! I am the developer of this website.
+I am a student of <strong>Nepal Police School, Sanga Kavre</strong>.
+This website is created as a school project to help students
+access academic information and notices easily, it will also help me for my portfolio and resume building.
+</p>
+
+<p>
+I am passionate about learning web development, Ethical hacking and improving
+my technical skills step by step.
+</p>
+
+</div>
 
 </div>
 
 <div class="cards">
 
-  <div class="card">
-    <h3>💻 My Skills</h3>
-    <ul>
-      <li>HTML5</li>
-      <li>CSS3</li>
-      <li>Basic JavaScript</li>
-      <li>Website Layout Design</li>
-    </ul>
-  </div>
+<div class="card">
+<h3>💻 My Skills</h3>
+<ul>
+<li>HTML5</li>
+<li>CSS3</li>
+<li>Basic JavaScript</li>
+<li>Website Layout Design</li>
+</ul>
+</div>
 
-  <div class="card">
-    <h3>🛠 Tools Used</h3>
-    <ul>
-      <li>Visual Studio Code</li>
-      <li>Google Chrome</li>
-      <li>Pixlr & Remove.bg</li>
-      <li>Img.bb</li>
-    </ul>
-  </div>
+<div class="card">
+<h3>🛠 Tools Used</h3>
+<ul>
+<li>Visual Studio Code</li>
+<li>Google Chrome</li>
+<li>Pixlr & Remove.bg</li>
+<li>Img.bb</li>
+</ul>
+</div>
 
-  <div class="card">
-    <h3>📘 Project Overview</h3>
-    <p>
-      This website is a demo school portal designed
-      for educational purposes only. It helps students
-      view school-related information online.
-    </p>
-  </div>
+<div class="card">
+<h3>📘 Project Overview</h3>
+<p>
+This website is a demo school portal designed
+for educational purposes only. It helps students
+view school-related information online.
+</p>
+</div>
 
 </div>
 
 <div class="yt5">
-  <h2>Group 26</h2>
-  <p>Group 26 means the members of the development team for this school project.</p>
-  <h3>Members and supporter</h3>
-  <ul>
-    <li>Aaditya kr. mandal</li>
-    <li>Priyanshu Mandal</li>
-    <li>Megas Ramuli</li>
-    <li>prince singh</li>
-    <li>Aryan Shah</li>
-    <li>Bhupendra Bista</li>
-    <li>Sankalpa baniya</li>
-    <li>Jenish bhandari</li>
+
+<h2>Group 26</h2>
+
+<p>Group 26 means the members of the development team for this school project.</p>
+
+<h3>Members and supporter</h3>
+
+<ul>
+<li>Aaditya kr. mandal</li>
+<li>Priyanshu Mandal</li>
+<li>Megas Ramuli</li>
+<li>Prince Singh</li>
+<li>Aryan Shah</li>
+<li>Bhupendra Bista</li>
+<li>Sankalpa Baniya</li>
+<li>Jenish Bhandari</li>
+</ul>
+
 </div>
+
 <div id="yt">
-  <h3>📺 YouTube Channel</h3>
-  <p>
-    I also have a YouTube channel where I share games related and updates.
-    Feel free to check it out and subscribe for more content!
-  </p>
-  <a href="https://www.youtube.com/@Darkgamer_yt907" target="_blank" class="yt1">Visit My YouTube account</a>
+
+<h3>📺 YouTube Channel</h3>
+
+<p>
+I also have a YouTube channel where I share games related and updates.
+Feel free to check it out and subscribe for more content!
+</p>
+
+<a href="https://www.youtube.com/@Darkgamer_yt907" target="_blank" class="yt1">
+Visit My YouTube account
+</a>
+
 </div>
+
 <div class="disclaimer">
-  <strong>Disclaimer:</strong>  
-  This website is a student project created for learning purposes and in future its going to add more classes to it.
+
+<strong>Disclaimer:</strong>  
+This website is a student project created for learning purposes and in future its going to add more classes to it.
+
 </div>
+
 </section>
 
-  <footer>
-  📍 <strong>Location:</strong> Sanga, Kavre, Nepal<br>
-  📞 <strong>General:</strong> 011‑661301 / +977 9851286005<br>
-  📞 <strong>Academic Admin:</strong> 011‑664670<br>
-  📞 <strong>Fees:</strong> 011‑663495 / +977 9851294944<br>
-  📧 <strong>Email:</strong> info@nps.edu.np<br>
-  <p class="footer-credit">
-  Inspired by <span>Nepal Police Education System And MR. Shweewan Bhandari sir</span>
+<footer>
+
+📍 <strong>Location:</strong> Sanga, Kavre, Nepal<br>
+📞 <strong>General:</strong> 011-661301 / +977 9851286005<br>
+📞 <strong>Academic Admin:</strong> 011-664670<br>
+📞 <strong>Fees:</strong> 011-663495 / +977 9851294944<br>
+📧 <strong>Email:</strong> info@nps.edu.np<br>
+
+<p class="footer-credit">
+Inspired by <span>Nepal Police Education System And MR. Shweewan Bhandari sir</span>
 </p>
 
 <p class="footer-credit">
-  Powered by <span>Ridam Tech Solutions and group 26</span>
+Powered by <span>Ridam Tech Solutions and group 26</span>
 </p>
-  <br>
-  © 2026 Nepal Police School, Sanga Kavre | All rights reserved
+
+<br>
+
+© 2026 Nepal Police School, Sanga Kavre | All rights reserved
+
 </footer>
 
-</body>
 <script>
-  // JavaScript to display user greeting
-  const userDiv = document.getElementById("userGreeting");
+
+/* user greeting system */
+
+const userDiv = document.getElementById("userGreeting");
+
 let studentName = localStorage.getItem("studentName");
 let teacherName = localStorage.getItem("teacherName");
 
 if(studentName){
-  userDiv.textContent = "Welcome, " + studentName;
-} else if(teacherName){
-  userDiv.textContent = "Welcome, " + teacherName;
-} else {
-  userDiv.textContent = ""; // no one logged in yet
+userDiv.textContent = "Welcome, " + studentName;
+}
+else if(teacherName){
+userDiv.textContent = "Welcome, " + teacherName;
+}
+else{
+userDiv.textContent = "";
 }
 
+/* smooth animation */
+
+const elements = document.querySelectorAll(
+".developer-intro, .card, .yt5, #yt, .disclaimer"
+);
+
+const observer = new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.style.opacity="1";
+entry.target.style.transform="translateY(0)";
+}
+});
+},{threshold:0.15});
+
+elements.forEach(el=>{
+el.style.opacity="0";
+el.style.transform="translateY(40px)";
+el.style.transition="opacity 0.8s ease, transform 0.8s ease";
+observer.observe(el);
+});
 
 </script>
+
+</body>
 </html>

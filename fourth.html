@@ -256,6 +256,63 @@
             font-weight: bold;
         }
         
+      
+      /* ---------- Mobile Header Fix ---------- */
+
+@media (max-width: 768px){
+
+header{
+flex-direction:column;
+text-align:center;
+padding:20px;
+}
+
+header div{
+flex-direction:column;
+}
+
+header h1{
+margin:10px 0;
+font-size:20px;
+}
+
+nav{
+margin-top:10px;
+}
+
+nav a{
+display:block;
+margin:6px 0;
+}
+
+#userGreeting{
+margin-top:10px;
+}
+
+}
+      
+      /* ---------- Student Cards Mobile ---------- */
+
+@media (max-width:600px){
+
+.student-card{
+width:120px;
+}
+
+.student-photo{
+width:70px;
+height:70px;
+}
+
+.student-card p{
+font-size:13px;
+}
+
+}
+      
+      .student-card{
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
     </style>
 </head>
 <body>
@@ -419,13 +476,38 @@
         slideIdx++;
         if(slideIdx > slides.length) { slideIdx = 1; }
         slides[slideIdx-1].style.display = "block";
-        setTimeout(showSlides, 3000);
+        setTimeout(showSlides, 3500);
     }
     showSlides();
 
     const userDiv = document.getElementById("userGreeting");
     let sName = localStorage.getItem("studentName") || localStorage.getItem("teacherName");
     if(sName) userDiv.textContent = "Welcome, " + sName;
+  
+  
+  /* Smooth animation for cards and sections */
+
+const animatedElements = document.querySelectorAll(
+".student-card, .notice, .achievement, .alumni-card, .message-box"
+);
+
+const observer = new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.style.opacity="1";
+entry.target.style.transform="translateY(0)";
+}
+});
+},{
+threshold:0.15
+});
+
+animatedElements.forEach(el=>{
+el.style.opacity="0";
+el.style.transform="translateY(40px)";
+el.style.transition="opacity 0.8s ease, transform 0.8s ease";
+observer.observe(el);
+});
 </script>
 
 </body>

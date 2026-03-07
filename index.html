@@ -4,303 +4,509 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nepal Police School | Landing</title>
+
 <style>
-/* ---------- General ---------- */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  background: #f3f4f6;
-  color: #333;
-  line-height: 1.6;
+
+/* ---------- GENERAL ---------- */
+
+body{
+font-family:'Segoe UI',sans-serif;
+margin:0;
+background:#f3f4f6;
+color:#333;
+line-height:1.6;
+scroll-behavior:smooth;
 }
 
-/* ---------- Header ---------- */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 50px;
-  background: linear-gradient(90deg,#001f4d,#4B0082);
-  color: white;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+/* ---------- HEADER ---------- */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 50px;
+background:linear-gradient(90deg,#001f4d,#4B0082);
+color:white;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 6px 18px rgba(0,0,0,0.3);
+flex-wrap:wrap;
 }
-header img { width: 120px; border-radius: 10px; }
-header h1 { margin-left: 20px; font-size: 24px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
-header h2 {
-  margin:0;
-  font-size:22px;
+
+header img{
+width:120px;
+border-radius:10px;
 }
-nav a {
-  margin: 0 12px;
-  padding: 8px 16px;
-  font-weight: bold;
-  border-radius: 8px;
-  transition: 0.3s;
-  color: white;
-  size: 16px;
+
+header h1{
+margin-left:20px;
+font-size:24px;
+text-shadow:1px 1px 5px rgba(0,0,0,0.5);
 }
-nav a:hover {
-  background: linear-gradient(45deg, #ff66cc, #9900cc);
-  box-shadow: 0 0 12px rgba(255,102,204,0.6);
-  border-radius: 8px;
-  padding:6px 12px;
-  transition:0.3s;
-  
+
+/* NAV */
+
+nav{
+display:flex;
+flex-wrap:wrap;
+align-items:center;
+}
+
+nav a{
+margin:6px 12px;
+padding:8px 16px;
+font-weight:bold;
+border-radius:8px;
+transition:0.3s;
+color:white;
+text-decoration:none;
+}
+
+nav a:hover{
+background:linear-gradient(45deg,#ff66cc,#9900cc);
+box-shadow:0 0 12px rgba(255,102,204,0.6);
 }
 
 .signup-btn{
-  padding:8px 18px;
-  border-radius:20px;
-  font-weight:bold;
-  border:none;
-  background:white;
-  color:#4B0082;
-  text-decoration:none;
-  cursor:pointer;
-  transition:0.3s;
+padding:8px 18px;
+border-radius:20px;
+font-weight:bold;
+border:none;
+background:white;
+color:#4B0082;
+text-decoration:none;
+cursor:pointer;
+transition:0.3s;
 }
-.signup-btn:hover{background:#ffccff;}
 
-/* ---------- Hero Section ---------- */
+.signup-btn:hover{
+background:#ffccff;
+}
+
+/* HAMBURGER */
+
+.menu-toggle{
+display:none;
+font-size:28px;
+cursor:pointer;
+}
+
+/* ---------- HERO ---------- */
+
 .hero{
-  text-align:center;
-  padding:70px 20px;
-  background: linear-gradient(135deg,#e9e6ff,#f5f3ff);
-}
-.hero h1{font-size:36px;margin-bottom:10px;}
-.hero p{font-size:18px;color:#555;}
-
-/* ---------- Boxes / Cards ---------- */
-.section-box {
-  max-width: 900px;
-  margin: 50px auto;
-  background: white;
-  border-radius: 20px;
-  padding: 30px;
-  text-align: center;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s ease;
-}
-.section-box.show {
-  opacity: 1;
-  transform: translateY(0);
+text-align:center;
+padding:70px 20px;
+background:linear-gradient(135deg,#e9e6ff,#f5f3ff);
 }
 
-/* ---------- Titles ---------- */
+.hero h1{
+font-size:36px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:18px;
+color:#555;
+}
+
+/* ---------- SLIDESHOW ---------- */
+
+.slideshow-container1{
+max-width:1000px;
+position:relative;
+margin:20px auto;
+padding:0 10px;
+}
+
+.slide{
+display:none;
+}
+
+.slide img{
+width:100%;
+border-radius:8px;
+}
+
+/* buttons */
+
+.prev,.next{
+cursor:pointer;
+position:absolute;
+top:50%;
+padding:12px;
+color:white;
+font-weight:bold;
+font-size:20px;
+background:rgba(0,0,0,0.5);
+border-radius:5px;
+user-select:none;
+}
+
+.next{
+right:10px;
+}
+
+.prev{
+left:10px;
+}
+
+.prev:hover,.next:hover{
+background:black;
+}
+
+/* ---------- CONTENT BOX ---------- */
+
+.section-box{
+max-width:900px;
+margin:50px auto;
+background:white;
+border-radius:20px;
+padding:30px;
+text-align:center;
+box-shadow:0 12px 30px rgba(0,0,0,0.15);
+opacity:0;
+transform:translateY(40px);
+transition:all 1s ease;
+}
+
+.section-box.show{
+opacity:1;
+transform:translateY(0);
+}
+
 .section-box h3{
-  font-size:28px;
-  color:#4B0082;
-  margin-bottom:20px;
+font-size:28px;
+color:#4B0082;
+margin-bottom:20px;
 }
 
-/* ---------- Paragraphs ---------- */
 .section-box p{
-  font-size:18px;
-  text-align:center;
-  margin-bottom:15px;
+font-size:18px;
+margin-bottom:15px;
 }
 
-/* ---------- Footer ---------- */
-footer {
-  background: linear-gradient(90deg,#001f4d,#4B0082);
-  color:white;
-  text-align:center;
-  padding:30px;
-  font-size:14px;
+/* ---------- FOOTER ---------- */
+
+footer{
+background:linear-gradient(90deg,#001f4d,#4B0082);
+color:white;
+text-align:center;
+padding:30px;
+font-size:14px;
 }
 
-/* ---------- Scroll Animation ---------- */
-@keyframes floatUp {
-  0% {opacity:0; transform: translateY(40px);}
-  100% {opacity:1; transform: translateY(0);}
+/* ---------- MOBILE ---------- */
+
+@media(max-width:900px){
+
+header{
+padding:20px;
 }
 
-/* here starts */
-.slideshow-container {
-  max-width: 800px;
-  position: relative;
-  margin: auto;
+.menu-toggle{
+display:block;
 }
 
-.slide {
-  display: none;
+nav{
+display:none;
+width:100%;
+flex-direction:column;
+text-align:center;
+margin-top:10px;
 }
 
-.fade {
-  animation: fadeEffect 1s;
+nav.active{
+display:flex;
 }
 
-@keyframes fadeEffect {
-  from {opacity: 0.4}
-  to {opacity: 1}
+header h1{
+font-size:20px;
+margin:10px 0;
+text-align:center;
 }
-/*end here*/
 
-/* Slideshow */
-.slideshow-container { max-width:1000px; position:relative; margin:20px auto; }
-.slide { display:none; }
-.slide img { width:100%; border-radius:8px; }
-.fade { animation: fadeEffect 1s; }
-@keyframes fadeEffect { from {opacity:0.4} to {opacity:1} }
+.hero h1{
+font-size:28px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.section-box{
+margin:30px 15px;
+padding:25px;
+}
+
+.section-box h3{
+font-size:24px;
+}
+
+.section-box p{
+font-size:16px;
+}
+
+}
+
+@media(max-width:500px){
+
+header img{
+width:90px;
+}
+
+.hero{
+padding:50px 15px;
+}
+
+.hero h1{
+font-size:24px;
+}
+
+.hero p{
+font-size:15px;
+}
+
+nav a{
+font-size:14px;
+padding:6px 10px;
+}
+
+.section-box{
+padding:20px;
+}
+
+.section-box h3{
+font-size:20px;
+}
+
+.section-box p{
+font-size:15px;
+}
+
+}
 
 </style>
 </head>
+
 <body>
 
-<!-- Header -->
+<!-- HEADER -->
+
 <header>
-  <div style="display:flex; align-items:center;">
-    <img src="https://i.ibb.co/n864tc23/nps.webp" alt="NPS Logo">
-    <h1>Nepal Police School, Sanga Kavre</h1>
-  </div>
-  <nav>
-    <a href="#" class="nav-link">Home</a>
-    <a href="#" class="nav-link">Students</a>
-    <a href="#" class="nav-link">Developer</a>
-    <a href="second.html" class="signup-btn">Sign Up</a>
-  </nav>
+
+<div style="display:flex;align-items:center;">
+<img src="https://i.ibb.co/n864tc23/nps.webp">
+<h1>Nepal Police School, Sanga Kavre</h1>
+</div>
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<nav id="navMenu">
+<a href="#" class="nav-link">Home</a>
+<a href="#" class="nav-link">Students</a>
+<a href="#" class="nav-link">Developer</a>
+<a href="second.html" class="signup-btn">Sign Up</a>
+</nav>
+
 </header>
 
-<!-- Hero -->
+<!-- HERO -->
+
 <section class="hero">
-  <h1>🎓 Shaping Future Leaders</h1>
-  <p>Discipline • Knowledge • Integrity</p>
+<h1>🎓 Shaping Future Leaders</h1>
+<p>Discipline • Knowledge • Integrity</p>
 </section>
 
-<!-- Slideshow -->
+<!-- SLIDESHOW -->
+
 <div class="slideshow-container1">
-  <div class="slide fade">
-    <img src="https://i.ibb.co/Rkq0XsZS/nps-homepage-main-image.png" alt="NPS Main Image" border="0">
-  </div>
-  <div class="slide fade">
-    <img src="https://i.ibb.co/nNhFB3gs/Screenshot-2026-02-26-114223.png" alt="Screenshot-2026-02-26-114223" border="0" />
-    </div>
-  <div class="slide fade">
-<img src="https://i.ibb.co/QZLZ8f6/Screenshot-2026-02-26-114245.png" alt="Screenshot-2026-02-26-114245" border="0" />
-      </div>
-<div class="slide fade">
-<img src="https://i.ibb.co/XrKCrbpK/Screenshot-2026-02-26-121245.png" alt="Screenshot-2026-02-26-121245" border="0" />
-</div>
-<div class="slide fade">
-<img src="https://i.ibb.co/YTLM6hRG/Screenshot-2026-02-26-121325.png" alt="Screenshot-2026-02-26-121325" border="0" />
-</div>
-<div class="slide fade">
-  <img src="https://i.ibb.co/nsDmZ8Mk/Screenshot-2026-02-26-121456.png" alt="Screenshot-2026-02-26-121456" border="0" />
-</div>
-<div class="slide fade">
-  <img src="https://i.ibb.co/SXK9PqYs/Screenshot-29.png" alt="Screenshot-29" border="0" />
-</div>
-<div class="slide fade">
- <img src="https://i.ibb.co/ch08LVqw/Screenshot-2026-01-20-105238.png" alt="Screenshot-2026-01-20-105238" border="0" />
-</div>
+
+<div class="slide">
+<img src="https://i.ibb.co/Rkq0XsZS/nps-homepage-main-image.png">
 </div>
 
+<div class="slide">
+<img src="https://i.ibb.co/nNhFB3gs/Screenshot-2026-02-26-114223.png">
+</div>
 
-<!-- About NPS -->
+<div class="slide">
+<img src="https://i.ibb.co/QZLZ8f6/Screenshot-2026-02-26-114245.png">
+</div>
+
+<div class="slide">
+<img src="https://i.ibb.co/XrKCrbpK/Screenshot-2026-02-26-121245.png">
+</div>
+
+<div class="slide">
+<img src="https://i.ibb.co/YTLM6hRG/Screenshot-2026-02-26-121325.png">
+</div>
+
+<div class="slide">
+<img src="https://i.ibb.co/nsDmZ8Mk/Screenshot-2026-02-26-121456.png">
+</div>
+
+<div class="slide">
+<img src="https://i.ibb.co/SXK9PqYs/Screenshot-29.png">
+</div>
+
+<div class="slide">
+<img src="https://i.ibb.co/ch08LVqw/Screenshot-2026-01-20-105238.png">
+</div>
+
+<a class="prev" onclick="changeSlide(-1)">❮</a>
+<a class="next" onclick="changeSlide(1)">❯</a>
+
+</div>
+
+<!-- ABOUT -->
+
 <div class="section-box show">
-  <h3>🏫 About Nepal Police School (NPS)</h3>
-  <p>Nepal Police School (often called Police School or NPS) is a prestigious co‑educational residential school established in 2040 B.S. (1983 CE) under the welfare program of the Nepal Police Organization. The central school in Sanga, Kavre was founded by the late Inspector General of Police D.B. Lama to educate children of police personnel and later opened to civilian students as well.</p>
-  <p>Located about 21 km east of Kathmandu on a hillside campus of over 200 acres of forests and orchards, NPS offers a disciplined, healthy learning environment. It admits students from Grade 4 to Grade 12, following the NEB curriculum, preparing learners for SEE and SLC examinations.</p>
-  <p>The school’s motto is: <strong>“Better Schooling for Ideal Citizens.”</strong></p>
+<h3>🏫 About Nepal Police School (NPS)</h3>
+
+<p>Nepal Police School (often called Police School or NPS) is a prestigious co-educational residential school established in 2040 B.S. (1983 CE) under the welfare program of the Nepal Police Organization.</p>
+
+<p>Located about 21 km east of Kathmandu on a hillside campus of over 200 acres of forests and orchards, NPS offers a disciplined, healthy learning environment.</p>
+
+<p>The school’s motto is: <strong>“Better Schooling for Ideal Citizens.”</strong></p>
 </div>
 
-<!-- Vision & Mission -->
+<!-- VISION -->
+
 <div class="section-box">
-  <h3>🎯 Vision & Mission</h3>
-  <p>🔹 <strong>Vision:</strong> To transform Nepal Police School into an ideal learning center that molds students into disciplined, competent, and socially responsible citizens.</p>
-  <p>🔹 <strong>Mission:</strong> To foster excellence, creativity, compassion, leadership, and ecological concern in students. The mission emphasizes forming conscientious learners who can face challenges with confidence and contribute positively to society.</p>
+<h3>🎯 Vision & Mission</h3>
+
+<p>Vision: To transform Nepal Police School into an ideal learning center.</p>
+
+<p>Mission: To foster excellence, creativity, compassion and leadership.</p>
 </div>
 
-<!-- Principal Message -->
+<!-- PRINCIPAL -->
+
 <div class="section-box">
-  <h3>📜 Principal’s Message</h3>
-  <p>From Mohan Paudel, Principal of NPS:</p>
-  <p>“Nepal Police School, Sanga is committed to quality education that nurtures holistic development. The peaceful campus, experienced teachers, and disciplined environment encourage students to think critically, creatively, and independently. Our goal is to prepare empathetic, resilient, and responsible young leaders ready for real‑world challenges.”</p>
-  <p>📌 “At NPS we believe quality education means holistic development — strong academics, creative thinking, moral values, and leadership skills in every student.”</p>
+<h3>📜 Principal’s Message</h3>
+
+<p>“Nepal Police School is committed to quality education that nurtures holistic development.”</p>
+
 </div>
 
-<!-- Admissions -->
+<!-- ADMISSIONS -->
+
 <div class="section-box">
-  <h3>🎓 Admissions Information</h3>
-  <p>Admissions are generally open for Classes IV–VIII and XI (Science and Management streams). New sessions typically begin after SEE results with notices issued in Fagun.</p>
-  <p>Entrance Exam Details:</p>
-  <p>Written exams for English, Nepali, Mathematics and Science (Grades IV–VIII).</p>
-  <p>Science stream students prepare for MCQs in higher‑level subjects; Management stream for combined language and math.</p>
-  <p>Admission decisions are based on entrance exam results and interviews. This structured process ensures quality and merit‑based selection.</p>
+<h3>🎓 Admissions Information</h3>
+
+<p>Admissions are open for Classes IV–VIII and XI.</p>
+
 </div>
 
-<!-- Facilities & Campus Life -->
+<!-- FACILITIES -->
+
 <div class="section-box">
-  <h3>📚 Facilities & Campus Life</h3>
-  <p>🏡 <strong>Residential Life:</strong> Hostel living is mandatory for most grades. A supportive team — including wardens and staff — ensures students feel safe and part of a community.</p>
-  <p>🚍 <strong>Transportation:</strong> Transportation is available for day scholar students, especially in the Management stream (Grades 11–12).</p>
-  <p>🔬 <strong>Laboratories & Library:</strong> Fully equipped labs for Physics, Chemistry, Biology, and Computer Science support experiential learning. A well‑stocked library with books and digital resources fosters academic research.</p>
-  <p>🏃‍♂️ <strong>Sports & Physical Activities:</strong> The campus includes a sports complex with football, volleyball, tennis, and a gymnasium for regular physical training.</p>
-  <p>🏥 <strong>Medical Support:</strong> Two dedicated medical halls with staff ensure 24/7 care; a doctor visits daily for routine check‑ups and health support.</p>
-  <p>🍃 <strong>Environment:</strong> Located in a pollution‑free, green hillside area, the campus provides a peaceful atmosphere that promotes focus and wellness.</p>
+<h3>📚 Facilities & Campus Life</h3>
+
+<p>Labs, sports complex, library, hostel and medical facilities are available.</p>
+
 </div>
 
-<!-- Student Activities & Achievements -->
+<!-- ACTIVITIES -->
+
 <div class="section-box">
-  <h3>📅 Student Activities & Achievements</h3>
-  <p>NPS doesn’t just focus on classroom learning — students participate in sports, cultural events, and community programs.</p>
-  <p>The school has hosted events like the IGP Running Trophy Football Championship, where students showcase teamwork and athletic skills. Students also engage in cultural performances, science exhibitions, and leadership opportunities that support holistic development.</p>
+<h3>📅 Student Activities & Achievements</h3>
+
+<p>Students participate in sports events, science exhibitions and cultural programs.</p>
+
 </div>
 
-<!-- Footer -->
+<!-- FOOTER -->
+
 <footer>
-  📍 <strong>Location:</strong> Sanga, Kavre, Nepal<br>
-  📞 <strong>General:</strong> 011‑661301 / +977 9851286005<br>
-  📞 <strong>Academic Admin:</strong> 011‑664670<br>
-  📞 <strong>Fees:</strong> 011‑663495 / +977 9851294944<br>
-  📧 <strong>Email:</strong> info@nps.edu.np<br>
-  <br>
-  © 2026 Nepal Police School, Sanga Kavre | All rights reserved
+
+📍 Location: Sanga, Kavre, Nepal<br>
+📞 011-661301 / +977 9851286005<br>
+📧 info@nps.edu.np
+
 </footer>
 
 <script>
-// Scroll Animation
+
+/* Scroll animation */
+
 const boxes = document.querySelectorAll('.section-box');
-window.addEventListener('scroll', checkBoxes);
 
-function checkBoxes() {
-  const triggerBottom = window.innerHeight * 0.85;
-
-  boxes.forEach(box => {
-    const boxTop = box.getBoundingClientRect().top;
-    if(boxTop < triggerBottom) {
-      box.classList.add('show');
-    }
-  });
+const observer = new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+observer.unobserve(entry.target);
 }
-
-// Lock Nav Links until Sign Up
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(link => {
-  link.addEventListener('click', function(e){
-    e.preventDefault();
-    alert("❌ Access denied.\n👉 Please sign up first to continue.");
-  });
+});
+},{
+threshold:0.2
 });
 
-// Slideshow
-let slideIndex = 0;
-function showSlides() {
-  let slides = document.getElementsByClassName("slide");
-  for(let i=0;i<slides.length;i++){ slides[i].style.display="none"; }
-  slideIndex++;
-  if(slideIndex>slides.length){ slideIndex=1; }
-  slides[slideIndex-1].style.display="block";
-  setTimeout(showSlides, 3000);
-}
+boxes.forEach(box=>{
+observer.observe(box);
+});
+
+/* Lock nav */
+
+const navLinks=document.querySelectorAll('.nav-link');
+
+navLinks.forEach(link=>{
+
+link.addEventListener('click',function(e){
+
+e.preventDefault();
+alert("❌ Access denied.\n👉 Please sign up first to continue.");
+
+});
+
+});
+
+/* slideshow */
+
+let slideIndex=0;
+
 showSlides();
+
+function showSlides(){
+
+let slides=document.getElementsByClassName("slide");
+
+for(let i=0;i<slides.length;i++){
+slides[i].style.display="none";
+}
+
+slideIndex++;
+
+if(slideIndex>slides.length){
+slideIndex=1;
+}
+
+slides[slideIndex-1].style.display="block";
+
+setTimeout(showSlides,4000);
+
+}
+
+function changeSlide(n){
+
+slideIndex+=n-1;
+
+showSlides();
+
+}
+
+/* mobile menu */
+
+function toggleMenu(){
+
+document.getElementById("navMenu").classList.toggle("active");
+
+}
 
 </script>
 
 </body>
 </html>
+
